@@ -14,18 +14,6 @@ TARGET_USES_MKE2FS := true
 # Enable dyanmic system image size and reserved 64MB in it.
 BOARD_SYSTEMIMAGE_PARTITION_RESERVED_SIZE := 67108864
 
-# Android Verified Boot (AVB):
-#   1) Sets BOARD_AVB_ENABLE to sign the GSI image.
-#   2) Sets AVB_VBMETA_IMAGE_FLAGS_VERIFICATION_DISABLED (--flag 2) in
-#      vbmeta.img to disable AVB verification.
-#
-# To disable AVB for GSI, use the vbmeta.img and the GSI together.
-# To enable AVB for GSI, include the GSI public key into the device-specific
-# vbmeta.img.
-BOARD_AVB_ENABLE := true
-BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
-
 # Enable chain partition for system.
 BOARD_AVB_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
 BOARD_AVB_SYSTEM_ALGORITHM := SHA256_RSA2048
